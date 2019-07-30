@@ -1,18 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func sliceTest( slice *[]int){
+func main() {
 
-	*slice=append(*slice,2)
-}
+	t := time.NewTicker(5 * time.Second)
 
-func main(){
+	for {
+		select {
+		case <-t.C:
+			fmt.Printf("Hello")
+		}
 
-	a := []int{1}
-
-	a = append(a,3)
-	sliceTest(&a)
-
-	fmt.Println(a)
+	}
 }
